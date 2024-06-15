@@ -27,7 +27,7 @@ public class RateLimiter {
       String[] split = limit.split(":");
       RRateLimiter limiter = redissonClient.getRateLimiter(KEY_PREFIX + split[0]);
       int qps = Integer.parseInt(split[1]);
-      while (!limiter.trySetRate(RateType.OVERALL, qps, 1, RateIntervalUnit.MINUTES)) {
+      while (!limiter.trySetRate(RateType.OVERALL, qps, 1, RateIntervalUnit.SECONDS)) {
         limiter.delete();
         limiter = redissonClient.getRateLimiter(KEY_PREFIX + split[0]);
       }
