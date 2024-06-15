@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: imitate-company
+server:
+  port: 8010
+
+redis:
+  host: 192.168.2.9
+  port: 6379
+
+qps:
+  config: A:1;B:5
